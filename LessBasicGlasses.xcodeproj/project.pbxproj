@@ -15,6 +15,9 @@
 		2D8301C4148676E2006F7C60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8301C3148676E2006F7C60 /* AppDelegate.m */; };
 		2D8301C7148676E2006F7C60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8301C6148676E2006F7C60 /* ViewController.m */; };
 		2D8301CA148676E2006F7C60 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8301C8148676E2006F7C60 /* ViewController.xib */; };
+		2D8301D2148676F6006F7C60 /* obama.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8301D0148676F6006F7C60 /* obama.png */; };
+		2D8301D3148676F6006F7C60 /* sample-glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8301D1148676F6006F7C60 /* sample-glasses.png */; };
+		2D8301D6148689C8006F7C60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8301D5148689C8006F7C60 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +25,18 @@
 		2D8301B3148676E2006F7C60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D8301B5148676E2006F7C60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D8301B7148676E2006F7C60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2D8301BB148676E2006F7C60 /* LessBasicGlasses-Info.plist */ = {isa = PBXFileReference; path = "LessBasicGlasses-Info.plist"; sourceTree = "<group>"; };
+		2D8301BB148676E2006F7C60 /* LessBasicGlasses-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LessBasicGlasses-Info.plist"; sourceTree = "<group>"; };
 		2D8301BD148676E2006F7C60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D8301BF148676E2006F7C60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D8301C1148676E2006F7C60 /* LessBasicGlasses-Prefix.pch */ = {isa = PBXFileReference; path = "LessBasicGlasses-Prefix.pch"; sourceTree = "<group>"; };
-		2D8301C2148676E2006F7C60 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		2D8301C1148676E2006F7C60 /* LessBasicGlasses-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LessBasicGlasses-Prefix.pch"; sourceTree = "<group>"; };
+		2D8301C2148676E2006F7C60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D8301C3148676E2006F7C60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2D8301C5148676E2006F7C60 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		2D8301C5148676E2006F7C60 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2D8301C6148676E2006F7C60 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2D8301C9148676E2006F7C60 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		2D8301D0148676F6006F7C60 /* obama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obama.png; sourceTree = "<group>"; };
+		2D8301D1148676F6006F7C60 /* sample-glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sample-glasses.png"; sourceTree = "<group>"; };
+		2D8301D5148689C8006F7C60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8301D6148689C8006F7C60 /* QuartzCore.framework in Frameworks */,
 				2D8301B4148676E2006F7C60 /* UIKit.framework in Frameworks */,
 				2D8301B6148676E2006F7C60 /* Foundation.framework in Frameworks */,
 				2D8301B8148676E2006F7C60 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +74,7 @@
 		2D8301B2148676E2006F7C60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D8301D5148689C8006F7C60 /* QuartzCore.framework */,
 				2D8301B3148676E2006F7C60 /* UIKit.framework */,
 				2D8301B5148676E2006F7C60 /* Foundation.framework */,
 				2D8301B7148676E2006F7C60 /* CoreGraphics.framework */,
@@ -77,6 +85,7 @@
 		2D8301B9148676E2006F7C60 /* LessBasicGlasses */ = {
 			isa = PBXGroup;
 			children = (
+				2D8301D4148676FC006F7C60 /* images */,
 				2D8301C2148676E2006F7C60 /* AppDelegate.h */,
 				2D8301C3148676E2006F7C60 /* AppDelegate.m */,
 				2D8301C5148676E2006F7C60 /* ViewController.h */,
@@ -96,6 +105,15 @@
 				2D8301C1148676E2006F7C60 /* LessBasicGlasses-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2D8301D4148676FC006F7C60 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2D8301D0148676F6006F7C60 /* obama.png */,
+				2D8301D1148676F6006F7C60 /* sample-glasses.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +168,8 @@
 			files = (
 				2D8301BE148676E2006F7C60 /* InfoPlist.strings in Resources */,
 				2D8301CA148676E2006F7C60 /* ViewController.xib in Resources */,
+				2D8301D2148676F6006F7C60 /* obama.png in Resources */,
+				2D8301D3148676F6006F7C60 /* sample-glasses.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
