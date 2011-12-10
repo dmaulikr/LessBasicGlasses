@@ -9,19 +9,32 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate> {
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+    UIButton *addViewButton;
+    
+    int pairsVisible;
+    
+    UIView *glassesView;
+    CAShapeLayer *_marque;
     CGFloat _lastScale;
     CGFloat _lastRotation;
-    CGFloat _firstX;
-    CGFloat _firstY;
+    CGFloat _lastX;
+    CGFloat _lastY;
     
-    UIImageView *glasses;
-    UIView *canvas;
+    UIBarButtonItem *changeImageButton;
+    UIImagePickerController *imagePicker;
+    UITableViewController *photoSourcePicker;
+    IBOutlet UIImageView *backgroundImage;
     
-    CAShapeLayer *_marque;
+    UIBarButtonItem *removeGlassesButton;
 }
 
-@property (retain, nonatomic) IBOutlet UIView *canvas;
-@property (retain, nonatomic) IBOutlet UIImageView *glasses;
+- (IBAction)addViewButtonPressed:(id)sender;
+- (IBAction)changeImageButtonPressed:(id)sender;
+- (IBAction)removeGlassesButtonPressed:(id)sender;
+@property (retain, nonatomic) IBOutlet UIView *glassesView;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *changeImageButton;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *removeGlassesButton;
+@property (retain, nonatomic) UIImageView *backgroundImage;
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D78262F1489B25100BBEB8A /* appicon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D78262E1489B25100BBEB8A /* appicon-57.png */; };
+		2D7826321489B25900BBEB8A /* appicon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D7826311489B25900BBEB8A /* appicon-114.png */; };
 		2D8301B4148676E2006F7C60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8301B3148676E2006F7C60 /* UIKit.framework */; };
 		2D8301B6148676E2006F7C60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8301B5148676E2006F7C60 /* Foundation.framework */; };
 		2D8301B8148676E2006F7C60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8301B7148676E2006F7C60 /* CoreGraphics.framework */; };
@@ -21,7 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D8301AF148676E2006F7C60 /* LessBasicGlasses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LessBasicGlasses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D78262E1489B25100BBEB8A /* appicon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appicon-57.png"; path = "../appicon-57.png"; sourceTree = "<group>"; };
+		2D7826311489B25900BBEB8A /* appicon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appicon-114.png"; path = "../appicon-114.png"; sourceTree = "<group>"; };
+		2D8301AF148676E2006F7C60 /* GlassesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlassesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8301B3148676E2006F7C60 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D8301B5148676E2006F7C60 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D8301B7148676E2006F7C60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,7 +70,7 @@
 		2D8301B0148676E2006F7C60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D8301AF148676E2006F7C60 /* LessBasicGlasses.app */,
+				2D8301AF148676E2006F7C60 /* GlassesApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +114,8 @@
 		2D8301D4148676FC006F7C60 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2D7826311489B25900BBEB8A /* appicon-114.png */,
+				2D78262E1489B25100BBEB8A /* appicon-57.png */,
 				2D8301D0148676F6006F7C60 /* obama.png */,
 				2D8301D1148676F6006F7C60 /* sample-glasses.png */,
 			);
@@ -133,7 +139,7 @@
 			);
 			name = LessBasicGlasses;
 			productName = LessBasicGlasses;
-			productReference = 2D8301AF148676E2006F7C60 /* LessBasicGlasses.app */;
+			productReference = 2D8301AF148676E2006F7C60 /* GlassesApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,6 +176,8 @@
 				2D8301CA148676E2006F7C60 /* ViewController.xib in Resources */,
 				2D8301D2148676F6006F7C60 /* obama.png in Resources */,
 				2D8301D3148676F6006F7C60 /* sample-glasses.png in Resources */,
+				2D78262F1489B25100BBEB8A /* appicon-57.png in Resources */,
+				2D7826321489B25900BBEB8A /* appicon-114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +265,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LessBasicGlasses/LessBasicGlasses-Prefix.pch";
 				INFOPLIST_FILE = "LessBasicGlasses/LessBasicGlasses-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GlassesApp;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -268,7 +276,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LessBasicGlasses/LessBasicGlasses-Prefix.pch";
 				INFOPLIST_FILE = "LessBasicGlasses/LessBasicGlasses-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GlassesApp;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -292,6 +300,7 @@
 				2D8301CF148676E2006F7C60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

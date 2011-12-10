@@ -11,8 +11,7 @@
 #import "ViewController.h"
 
 @implementation ViewController
-@synthesize canvas;
-@synthesize glasses;
+@synthesize glassesView, changeImageButton, backgroundImage, removeGlassesButton;
 
 - (void)didReceiveMemoryWarning
 {
@@ -20,8 +19,11 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - generic private methods for gestures
+#pragma mark UIGesture stuff
+
 - (void)showOverlayWithFrame:(CGRect)frame {
+    //NSLog(@"showoverlay");
+    
     if (![_marque actionForKey:@"linePhase"]) {
         CABasicAnimation *dashAnimation;
         dashAnimation = [CABasicAnimation animationWithKeyPath:@"lineDashPhase"];
@@ -32,7 +34,8 @@
         [_marque addAnimation:dashAnimation forKey:@"linePhase"];
     }
     _marque.bounds = CGRectMake(frame.origin.x, frame.origin.y, 0, 0);
-    _marque.position = CGPointMake(frame.origin.x + canvas.frame.origin.x, frame.origin.y + canvas.frame.origin.y);
+    //_marque.position = CGPointMake(frame.origin.x + canvas.frame.origin.x, frame.origin.y + canvas.frame.origin.y);
+    _marque.position = CGPointMake(frame.origin.x, frame.origin.y);
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddRect(path, NULL, frame);
@@ -40,6 +43,7 @@
     CGPathRelease(path);
     
     _marque.hidden = NO;
+    
 }
 
 - (void)scale:(id)sender {
@@ -48,14 +52,14 @@
     }
     
     CGFloat scale = 1.0 - (_lastScale - [(UIPinchGestureRecognizer *)sender scale]);
-    
-    CGAffineTransform currentTransform = glasses.transform;
+    NSLog(@"scale: %f",scale);
+    CGAffineTransform currentTransform = [[(UIPinchGestureRecognizer*)sender view] transform];
     CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, scale, scale);
     
-    [glasses setTransform:newTransform];
+    [[(UIPinchGestureRecognizer*)sender view] setTransform:newTransform];
     
     _lastScale = [(UIPinchGestureRecognizer *)sender scale];
-    [self showOverlayWithFrame:glasses.frame];
+    [self showOverlayWithFrame:[[(UIPinchGestureRecognizer*)sender view] frame]];
 }
 
 - (void)rotate:(id)sender {
@@ -66,33 +70,36 @@
     
     CGFloat rotation = 0.0 - (_lastRotation - [(UIRotationGestureRecognizer *)sender rotation]);
     
-    CGAffineTransform currentTransform = glasses.transform;
+    CGAffineTransform currentTransform = [[(UIPinchGestureRecognizer*)sender view] transform];
     CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform, rotation);
     
-    [glasses setTransform:newTransform];
+    [[(UIPinchGestureRecognizer*)sender view] setTransform:newTransform];
     
     _lastRotation = [(UIRotationGestureRecognizer *)sender rotation];
-    [self showOverlayWithFrame:glasses.frame];
+    [self showOverlayWithFrame:[[(UIPinchGestureRecognizer*)sender view] frame]];
 }
 
 - (void)move:(id)sender {
-    CGPoint translatedPoint = [(UIPanGestureRecognizer *)sender translationInView:canvas];
+    [self.view bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
+    CGPoint translatedPoint = [(UIPanGestureRecognizer *)sender translationInView:self.view];
     
     if ([(UIPanGestureRecognizer *)sender state] == UIGestureRecognizerStateBegan) {
-        _firstX = [canvas center].x;
-        _firstY = [canvas center].y;
+        _lastX = [[sender view] center].x;
+        _lastY = [[sender view] center].y;
     }
     
-    translatedPoint = CGPointMake(_firstX + translatedPoint.x, _firstY + translatedPoint.y);
+    translatedPoint = CGPointMake(_lastX + translatedPoint.x, _lastY + translatedPoint.y);
     
-    //[glasses setCenter:translatedPoint];
-    [canvas setCenter:translatedPoint];
-    [self showOverlayWithFrame:glasses.frame];
+    [[sender view] setCenter:translatedPoint];
+    [self showOverlayWithFrame:[[(UIPinchGestureRecognizer*)sender view] frame]];
 }
 
 -(void)tapped:(id)sender {
+    [[[(UITapGestureRecognizer*)sender view] layer] removeAllAnimations];
     _marque.hidden = YES;
 }
+
+
 
 
 
@@ -102,44 +109,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    pairsVisible = 0;
     
-    if (!_marque) {
-        _marque = [[CAShapeLayer layer] retain];
-        _marque.fillColor = [[UIColor clearColor] CGColor];
-        _marque.strokeColor = [[UIColor grayColor] CGColor];
-        _marque.lineWidth = 1.0f;
-        _marque.lineJoin = kCALineJoinRound;
-        _marque.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10], [NSNumber numberWithInt:5], nil];
-        _marque.bounds = CGRectMake(glasses.frame.origin.x, glasses.frame.origin.y, 0, 0);
-        _marque.position = CGPointMake(canvas.frame.origin.x + glasses.frame.origin.x, canvas.frame.origin.y + glasses.frame.origin.y);
-    }
     
-    [[self.view layer] addSublayer:_marque];
-    
-    UIPinchGestureRecognizer *pinchRecognizer = [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)] autorelease];
-    [pinchRecognizer setDelegate:self];
-    [self.view addGestureRecognizer:pinchRecognizer];
-    
-    UIRotationGestureRecognizer *rotationRecognizer = [[[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)] autorelease];
-    [rotationRecognizer setDelegate:self];
-    [self.view addGestureRecognizer:rotationRecognizer];
-    
-    UIPanGestureRecognizer *panRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)] autorelease];
-    [panRecognizer setMinimumNumberOfTouches:1];
-    [panRecognizer setMaximumNumberOfTouches:1];
-    [panRecognizer setDelegate:self];
-    [canvas addGestureRecognizer:panRecognizer];
-    
-    UITapGestureRecognizer *tapProfileImageRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)] autorelease];
-    [tapProfileImageRecognizer setNumberOfTapsRequired:1];
-    [tapProfileImageRecognizer setDelegate:self];
-    [canvas addGestureRecognizer:tapProfileImageRecognizer];
 }
 
 - (void)viewDidUnload
 {
-    [self setCanvas:nil];
-    [self setGlasses:nil];
+    [self setGlassesView:nil];
+    [self setChangeImageButton:nil];
+    [self setChangeImageButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -172,17 +151,89 @@
 }
 
 - (void)dealloc {
-    [canvas release];
-    [glasses release];
     [_marque release];
+    [glassesView release];
+    [changeImageButton release];
     [super dealloc];
 }
-
-
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return ![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ![gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]];
+}
+
+- (IBAction)addViewButtonPressed:(id)sender {
+    NSLog(@"pressed");
+    pairsVisible++;
+    
+    if (pairsVisible > 10)
+    {
+        UIAlertView *glassesAlert = [[UIAlertView alloc] initWithTitle:@"Too many pairs!" message:@"Sorry, you can only have 10 pairs of glasses at a time. Remove some by clicking the trash button below before adding more." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [glassesAlert show];
+        [glassesAlert release];
+    } else {
+        UIImage *image = [UIImage imageNamed:@"sample-glasses.png"];
+        UIView *canvas = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 100)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:[canvas frame]];
+        [imageView setImage:image];
+        [canvas addSubview:imageView];
+        
+        UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
+        [pinchRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:pinchRecognizer];
+        
+        UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
+        [rotationRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:rotationRecognizer];
+        
+        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
+        [panRecognizer setMinimumNumberOfTouches:1];
+        [panRecognizer setMaximumNumberOfTouches:1];
+        [panRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:panRecognizer];
+        
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        [tapRecognizer setNumberOfTapsRequired:1];
+        [tapRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:tapRecognizer];
+        
+        [self.glassesView addSubview:canvas];
+    }
+}
+
+#pragma mark image picking stuff
+- (IBAction)changeImageButtonPressed:(id)sender
+{
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    [self presentModalViewController:imagePicker animated:YES];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *) picker {
+    
+    [self->imagePicker dismissModalViewControllerAnimated:YES];
+    [picker release];
+}
+
+- (void)imagePickerController:(UIImagePickerController *) picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    backgroundImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    [self->imagePicker dismissModalViewControllerAnimated:YES];
+    [picker release];
+}
+
+- (IBAction)removeGlassesButtonPressed:(id)sender
+{
+    NSLog(@"remove glasses");
 }
 
 

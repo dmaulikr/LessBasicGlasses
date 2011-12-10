@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D8301AE148676E2006F7C60"
-               BuildableName = "LessBasicGlasses.app"
+               BuildableName = "GlassesApp.app"
                BlueprintName = "LessBasicGlasses"
                ReferencedContainer = "container:LessBasicGlasses.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D8301AE148676E2006F7C60"
-            BuildableName = "LessBasicGlasses.app"
+            BuildableName = "GlassesApp.app"
             BlueprintName = "LessBasicGlasses"
             ReferencedContainer = "container:LessBasicGlasses.xcodeproj">
          </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D8301AE148676E2006F7C60"
-            BuildableName = "LessBasicGlasses.app"
+            BuildableName = "GlassesApp.app"
             BlueprintName = "LessBasicGlasses"
             ReferencedContainer = "container:LessBasicGlasses.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D8301AE148676E2006F7C60"
-            BuildableName = "LessBasicGlasses.app"
+            BuildableName = "GlassesApp.app"
             BlueprintName = "LessBasicGlasses"
             ReferencedContainer = "container:LessBasicGlasses.xcodeproj">
          </BuildableReference>
