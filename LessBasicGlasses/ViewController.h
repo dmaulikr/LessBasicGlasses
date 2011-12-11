@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate> {
     UIButton *addViewButton;
     
     int pairsVisible;
+    bool removeGlassesButtonToggle;
     
     UIView *glassesView;
     CAShapeLayer *_marque;

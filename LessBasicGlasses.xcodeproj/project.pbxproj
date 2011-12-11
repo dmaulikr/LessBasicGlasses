@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3E617214941B7B00D9F74A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D3E617114941B7B00D9F74A /* Default@2x.png */; };
+		2D3E617414941B8A00D9F74A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D3E617314941B8A00D9F74A /* Default.png */; };
 		2D78262F1489B25100BBEB8A /* appicon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D78262E1489B25100BBEB8A /* appicon-57.png */; };
 		2D7826321489B25900BBEB8A /* appicon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D7826311489B25900BBEB8A /* appicon-114.png */; };
 		2D8301B4148676E2006F7C60 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8301B3148676E2006F7C60 /* UIKit.framework */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D3E617114941B7B00D9F74A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		2D3E617314941B8A00D9F74A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		2D78262E1489B25100BBEB8A /* appicon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appicon-57.png"; path = "../appicon-57.png"; sourceTree = "<group>"; };
 		2D7826311489B25900BBEB8A /* appicon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appicon-114.png"; path = "../appicon-114.png"; sourceTree = "<group>"; };
 		2D8301AF148676E2006F7C60 /* GlassesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlassesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +118,8 @@
 		2D8301D4148676FC006F7C60 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2D3E617114941B7B00D9F74A /* Default@2x.png */,
+				2D3E617314941B8A00D9F74A /* Default.png */,
 				2D7826311489B25900BBEB8A /* appicon-114.png */,
 				2D78262E1489B25100BBEB8A /* appicon-57.png */,
 				2D8301D0148676F6006F7C60 /* obama.png */,
@@ -178,6 +184,8 @@
 				2D8301D3148676F6006F7C60 /* sample-glasses.png in Resources */,
 				2D78262F1489B25100BBEB8A /* appicon-57.png in Resources */,
 				2D7826321489B25900BBEB8A /* appicon-114.png in Resources */,
+				2D3E617214941B7B00D9F74A /* Default@2x.png in Resources */,
+				2D3E617414941B8A00D9F74A /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
