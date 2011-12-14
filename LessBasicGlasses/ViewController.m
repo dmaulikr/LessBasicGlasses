@@ -185,43 +185,10 @@
 }
 
 - (IBAction)addViewButtonPressed:(id)sender {
-    NSLog(@"pressed");
-    pairsVisible++;
-    removeGlassesButton.enabled = YES;
-    
-    if (pairsVisible > 10)
-    {
-        UIAlertView *glassesAlert = [[UIAlertView alloc] initWithTitle:@"Too many pairs!" message:@"Sorry, you can only have 10 pairs of glasses at a time. Remove some by clicking the trash button below before adding more." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [glassesAlert show];
-        [glassesAlert release];
-    } else {
-        UIImage *image = [UIImage imageNamed:@"sample-glasses.png"];
-        UIView *canvas = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 100)];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:[canvas frame]];
-        [imageView setImage:image];
-        [canvas addSubview:imageView];
-        
-        UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
-        [pinchRecognizer setDelegate:self];
-        [canvas addGestureRecognizer:pinchRecognizer];
-        
-        UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
-        [rotationRecognizer setDelegate:self];
-        [canvas addGestureRecognizer:rotationRecognizer];
-        
-        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-        [panRecognizer setMinimumNumberOfTouches:1];
-        [panRecognizer setMaximumNumberOfTouches:1];
-        [panRecognizer setDelegate:self];
-        [canvas addGestureRecognizer:panRecognizer];
-        
-        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-        [tapRecognizer setNumberOfTapsRequired:1];
-        [tapRecognizer setDelegate:self];
-        [canvas addGestureRecognizer:tapRecognizer];
-        
-        [self.glassesView addSubview:canvas];
-    }
+    GalleryViewController *gvc = [[GalleryViewController alloc] init];
+    gvc.delegate = self;
+    [self presentModalViewController:gvc animated:YES];
+    [gvc release];
 }
 
 #pragma mark image picking stuff
@@ -243,6 +210,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    NSLog(@"button index %i",buttonIndex);
     if(buttonIndex == 0 || (buttonIndex == 1 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]))
     {
         imagePicker = [[UIImagePickerController alloc] init];
@@ -296,6 +264,55 @@
         pairsVisible = 0;
         removeGlassesButton.enabled = NO;
     }
+}
+
+#pragma mark GalleryViewDelegate methods
+- (void)glassesSelected:(GalleryViewController *)gvc
+{
+    pairsVisible++;
+    removeGlassesButton.enabled = YES;
+    
+    if (pairsVisible > 10)
+    {
+        UIAlertView *glassesAlert = [[UIAlertView alloc] initWithTitle:@"Too many pairs!" message:@"Sorry, you can only have 10 pairs of glasses at a time. Remove some by clicking the trash button below before adding more." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [glassesAlert show];
+        [glassesAlert release];
+    } else {
+        UIImage *image = [UIImage imageNamed:[gvc getGlassesFileName]];
+        UIView *canvas = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 100)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:[canvas frame]];
+        [imageView setImage:image];
+        [canvas addSubview:imageView];
+        
+        UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)];
+        [pinchRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:pinchRecognizer];
+        
+        UIRotationGestureRecognizer *rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotate:)];
+        [rotationRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:rotationRecognizer];
+        
+        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
+        [panRecognizer setMinimumNumberOfTouches:1];
+        [panRecognizer setMaximumNumberOfTouches:1];
+        [panRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:panRecognizer];
+        
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        [tapRecognizer setNumberOfTapsRequired:1];
+        [tapRecognizer setDelegate:self];
+        [canvas addGestureRecognizer:tapRecognizer];
+        
+        [self.glassesView addSubview:canvas];
+    }
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
+
+- (void)glassesCancelled
+{
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
 }
 
 
