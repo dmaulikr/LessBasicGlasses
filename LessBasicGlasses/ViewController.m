@@ -9,6 +9,8 @@
 //
 
 #import "ViewController.h"
+#import "UIImageView+WebCache.h"
+#import "SDWebImageManager.h"
 
 @implementation ViewController
 @synthesize glassesView, changeImageButton, backgroundImage, removeGlassesButton;
@@ -211,21 +213,30 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"button index %i",buttonIndex);
-    if(buttonIndex == 0 || (buttonIndex == 1 && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]))
+    
+    if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        buttonIndex++;
+    }
+    
+    if(buttonIndex == 0)
     {
         imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
-        
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] && buttonIndex == 1)
-        {
-            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        } else {
-            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        }
-        
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentModalViewController:imagePicker animated:YES];
-    } else {
-        backgroundImage.image = [UIImage imageNamed:@"obama.png"];
+        [imagePicker release];
+    } else if(buttonIndex == 1) {
+        imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentModalViewController:imagePicker animated:YES];
+        [imagePicker release];
+    } else if(buttonIndex == 2) {
+        FamousViewController *fvc = [[FamousViewController alloc] init];
+        fvc.delegate = self;
+        [self presentModalViewController:fvc animated:YES];
+        [fvc release];
     }
     
 }
@@ -233,15 +244,15 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *) picker {
     
     [self->imagePicker dismissModalViewControllerAnimated:YES];
-    [picker release];
 }
 
 - (void)imagePickerController:(UIImagePickerController *) picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     backgroundImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
+    [[glassesView subviews] makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    pairsVisible = 0;
+    removeGlassesButton.enabled = NO;
     [self->imagePicker dismissModalViewControllerAnimated:YES];
-    [picker release];
 }
 
 #pragma mark delete glasses section and UIAlertViewDelegate
@@ -278,7 +289,15 @@
         [glassesAlert show];
         [glassesAlert release];
     } else {
-        UIImage *image = [UIImage imageNamed:[gvc getGlassesFileName]];
+        UIImage *image;
+        if([gvc getOnlineState])
+        {
+            // glasses are online, need to download them
+            image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[gvc getGlassesFileName]]]];
+        } else {
+             image = [UIImage imageNamed:[gvc getGlassesFileName]];
+        }
+        
         UIView *canvas = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 100)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:[canvas frame]];
         [imageView setImage:image];
@@ -314,6 +333,30 @@
     [self dismissModalViewControllerAnimated:YES];
     [self reloadInputViews];
 }
+
+#pragma mark face selector
+- (void)faceSelected:(FamousViewController *)fvc
+{
+    if([fvc getOnlineState])
+    {
+        // glasses are online, need to download them
+        [backgroundImage setImageWithURL:[NSURL URLWithString:[fvc getFaceFileName]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    } else {
+        [backgroundImage setImage:[UIImage imageNamed:[fvc getFaceFileName]]];
+    }
+    [[glassesView subviews] makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    pairsVisible = 0;
+    removeGlassesButton.enabled = NO;
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
+
+- (void)faceCancelled
+{
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
+
 
 
 

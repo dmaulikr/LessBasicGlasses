@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glasses>
+    <pair id="1">
+        <name>Sample Glasses 1</name>
+        <pairPath>sample-glasses.png</pairPath>
+    </pair>
+    <pair id="2">
+        <name>Sample Glasses 2</name>
+        <pairPath>sample-glasses2.png</pairPath>        
+    </pair>
+</glasses>

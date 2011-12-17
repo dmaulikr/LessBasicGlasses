@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces>
+	<face id="1">
+		<name>Albert Einstein</name>
+		<facePath>einstein.jpg</facePath>
+	</face>
+	<face id="2">
+		<name>Lady Gaga</name>
+		<facePath>gaga.jpg</facePath>
+	</face>
+	<face id="3">
+		<name>Abraham Lincoln</name>
+		<facePath>lincoln.jpg</facePath>
+	</face>
+	<face id="4">
+		<name>Barack Obama</name>
+		<facePath>obama.jpg</facePath>
+	</face>
+	<face id="5">
+		<name>Tim Tebow</name>
+		<facePath>tebow.jpg</facePath>
+	</face>
+	<face id="6">
+		<name>Margaret Thatcher</name>
+		<facePath>thatcher.jpg</facePath>
+	</face>
+</faces>

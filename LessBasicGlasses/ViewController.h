@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "GalleryViewController.h"
+#import "FamousViewController.h"
 
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, GalleryViewDelegate> {
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, GalleryViewDelegate, FamousViewDelegate> {
     UIButton *addViewButton;
     
     int pairsVisible;
