@@ -11,9 +11,11 @@
 #import "ViewController.h"
 #import "UIImageView+WebCache.h"
 #import "SDWebImageManager.h"
+#import "renderToImage.h"
+
 
 @implementation ViewController
-@synthesize glassesView, changeImageButton, backgroundImage, removeGlassesButton;
+@synthesize glassesView, changeImageButton, backgroundImage, removeGlassesButton, moreOptionsButton, wrapperView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -143,6 +145,8 @@
     [self setGlassesView:nil];
     [self setChangeImageButton:nil];
     [self setRemoveGlassesButton:nil];
+    [self setMoreOptionsButton:nil];
+    [self setWrapperView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -206,6 +210,18 @@
     actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
     [actionSheet showInView:self.view];
     [actionSheet release];
+}
+
+#pragma mark more options picking stuff
+- (IBAction)moreOptionsButtonPressed:(id)sender
+{
+    NSLog(@"more options");
+    MoreOptionsController *moc = [[MoreOptionsController alloc] init];
+    moc.delegate = self;
+    moc.image = [wrapperView renderToImage];
+    [self presentModalViewController:moc animated:YES];
+    [moc release];
+
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -357,6 +373,38 @@
     [self reloadInputViews];
 }
 
+#pragma mark MoreOptionsDelegate methods
+-(void)saveImage
+{
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
+
+-(void)tweetImage
+{    
+    // don't do anything hurr
+}
+
+-(void)mailImage
+{
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
+-(void)gotoSEEOnline
+{
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
+-(void)signUpForSpecialOffers
+{
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
+-(void)endOptions
+{
+    [self dismissModalViewControllerAnimated:YES];
+    [self reloadInputViews];
+}
 
 
 

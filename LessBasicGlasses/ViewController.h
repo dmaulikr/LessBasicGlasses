@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <Twitter/Twitter.h>
 #import "GalleryViewController.h"
 #import "FamousViewController.h"
+#import "MoreOptionsController.h"
 
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, GalleryViewDelegate, FamousViewDelegate> {
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate, GalleryViewDelegate, FamousViewDelegate, MoreOptionsDelegate> {
     UIButton *addViewButton;
     
     int pairsVisible;
@@ -29,15 +31,18 @@
     UITableViewController *photoSourcePicker;
     IBOutlet UIImageView *backgroundImage;
     
-    UIBarButtonItem *removeGlassesButton;
+    UIView *wrapperView;
 }
 
 - (IBAction)addViewButtonPressed:(id)sender;
 - (IBAction)changeImageButtonPressed:(id)sender;
 - (IBAction)removeGlassesButtonPressed:(id)sender;
+- (IBAction)moreOptionsButtonPressed:(id)sender;
 @property (retain, nonatomic) IBOutlet UIView *glassesView;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *changeImageButton;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *removeGlassesButton;
 @property (retain, nonatomic) UIImageView *backgroundImage;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *moreOptionsButton;
+@property (retain, nonatomic) IBOutlet UIView *wrapperView;
 
 @end
