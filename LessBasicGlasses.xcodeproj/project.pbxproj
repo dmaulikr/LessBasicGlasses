@@ -17,8 +17,8 @@
 		2D355ED3149AA6CF00FE8F8C /* FamousViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D355ED1149AA6CF00FE8F8C /* FamousViewController.xib */; };
 		2D3E617214941B7B00D9F74A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D3E617114941B7B00D9F74A /* Default@2x.png */; };
 		2D3E617414941B8A00D9F74A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D3E617314941B8A00D9F74A /* Default.png */; };
-		2D78262F1489B25100BBEB8A /* appicon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D78262E1489B25100BBEB8A /* appicon-57.png */; };
-		2D7826321489B25900BBEB8A /* appicon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D7826311489B25900BBEB8A /* appicon-114.png */; };
+		2D6016A814A1650200ED29D8 /* SEE-Icon-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016A714A1650200ED29D8 /* SEE-Icon-114x114.png */; };
+		2D6016AB14A1650600ED29D8 /* SEE-Icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016AA14A1650600ED29D8 /* SEE-Icon-57x57.png */; };
 		2D82E6A5149D0311009D52E1 /* glasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D82E6A4149D0311009D52E1 /* glasses.xml */; };
 		2D82E6A8149D03CB009D52E1 /* TSGlassesParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D82E6A7149D03CB009D52E1 /* TSGlassesParser.m */; };
 		2D82E6AB149D03D6009D52E1 /* TSGlassesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D82E6AA149D03D6009D52E1 /* TSGlassesInfo.m */; };
@@ -68,8 +68,8 @@
 		2D355ED1149AA6CF00FE8F8C /* FamousViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FamousViewController.xib; sourceTree = "<group>"; };
 		2D3E617114941B7B00D9F74A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		2D3E617314941B8A00D9F74A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
-		2D78262E1489B25100BBEB8A /* appicon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appicon-57.png"; path = "../appicon-57.png"; sourceTree = "<group>"; };
-		2D7826311489B25900BBEB8A /* appicon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appicon-114.png"; path = "../appicon-114.png"; sourceTree = "<group>"; };
+		2D6016A714A1650200ED29D8 /* SEE-Icon-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SEE-Icon-114x114.png"; path = "../SEE-Icon-114x114.png"; sourceTree = "<group>"; };
+		2D6016AA14A1650600ED29D8 /* SEE-Icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SEE-Icon-57x57.png"; path = "../SEE-Icon-57x57.png"; sourceTree = "<group>"; };
 		2D82E6A4149D0311009D52E1 /* glasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = glasses.xml; sourceTree = "<group>"; };
 		2D82E6A6149D03CB009D52E1 /* TSGlassesParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGlassesParser.h; sourceTree = "<group>"; };
 		2D82E6A7149D03CB009D52E1 /* TSGlassesParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGlassesParser.m; sourceTree = "<group>"; };
@@ -283,9 +283,9 @@
 				2D355EC2149AA63300FE8F8C /* famous faces */,
 				2D355EC0149AA62B00FE8F8C /* glasses */,
 				2D3E617114941B7B00D9F74A /* Default@2x.png */,
+				2D6016AA14A1650600ED29D8 /* SEE-Icon-57x57.png */,
+				2D6016A714A1650200ED29D8 /* SEE-Icon-114x114.png */,
 				2D3E617314941B8A00D9F74A /* Default.png */,
-				2D7826311489B25900BBEB8A /* appicon-114.png */,
-				2D78262E1489B25100BBEB8A /* appicon-57.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -368,8 +368,6 @@
 				2D8301BE148676E2006F7C60 /* InfoPlist.strings in Resources */,
 				2D8301CA148676E2006F7C60 /* ViewController.xib in Resources */,
 				2D8301D3148676F6006F7C60 /* sample-glasses.png in Resources */,
-				2D78262F1489B25100BBEB8A /* appicon-57.png in Resources */,
-				2D7826321489B25900BBEB8A /* appicon-114.png in Resources */,
 				2D3E617214941B7B00D9F74A /* Default@2x.png in Resources */,
 				2D3E617414941B8A00D9F74A /* Default.png in Resources */,
 				2DDD82BA149866B000CD10B6 /* sample-glasses2.png in Resources */,
@@ -386,6 +384,8 @@
 				2D82E6A5149D0311009D52E1 /* glasses.xml in Resources */,
 				2D82E6B5149D0E20009D52E1 /* placeholder-glasses.png in Resources */,
 				2D82E6C0149D5A5C009D52E1 /* MoreOptionsController.xib in Resources */,
+				2D6016A814A1650200ED29D8 /* SEE-Icon-114x114.png in Resources */,
+				2D6016AB14A1650600ED29D8 /* SEE-Icon-57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
