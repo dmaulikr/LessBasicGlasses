@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 @protocol MoreOptionsDelegate
 -(void)saveImage;
@@ -17,7 +19,7 @@
 -(void)endOptions;
 @end
 
-@interface MoreOptionsController : UIViewController <UITableViewDelegate>
+@interface MoreOptionsController : UIViewController <UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     UITableView *moreOptionsTable;
     NSArray *optionsList;
