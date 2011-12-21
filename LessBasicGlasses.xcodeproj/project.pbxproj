@@ -53,6 +53,7 @@
 		2DDD82BA149866B000CD10B6 /* sample-glasses2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DDD82B9149866B000CD10B6 /* sample-glasses2.png */; };
 		2DDD82C31498670900CD10B6 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDD82C11498670900CD10B6 /* GalleryViewController.m */; };
 		2DDD82C41498670900CD10B6 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DDD82C21498670900CD10B6 /* GalleryViewController.xib */; };
+		2DF9C83E14A1645900578359 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF9C83D14A1645900578359 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		2DDD82C01498670900CD10B6 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalleryViewController.h; path = ../../TestGlassesPicker/TestGlassesPicker/GalleryViewController.h; sourceTree = "<group>"; };
 		2DDD82C11498670900CD10B6 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GalleryViewController.m; path = ../../TestGlassesPicker/TestGlassesPicker/GalleryViewController.m; sourceTree = "<group>"; };
 		2DDD82C21498670900CD10B6 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GalleryViewController.xib; path = ../../TestGlassesPicker/TestGlassesPicker/GalleryViewController.xib; sourceTree = "<group>"; };
+		2DF9C83D14A1645900578359 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF9C83E14A1645900578359 /* MessageUI.framework in Frameworks */,
 				2D82E6C5149D80E2009D52E1 /* Twitter.framework in Frameworks */,
 				2DD7BC63149C0A9600EDBD3D /* SystemConfiguration.framework in Frameworks */,
 				2D8301D6148689C8006F7C60 /* QuartzCore.framework in Frameworks */,
@@ -213,7 +216,6 @@
 		2D8301A4148676E1006F7C60 = {
 			isa = PBXGroup;
 			children = (
-				2D82E6C4149D80E1009D52E1 /* Twitter.framework */,
 				2D8301B9148676E2006F7C60 /* LessBasicGlasses */,
 				2D8301B2148676E2006F7C60 /* Frameworks */,
 				2D8301B0148676E2006F7C60 /* Products */,
@@ -231,6 +233,8 @@
 		2D8301B2148676E2006F7C60 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DF9C83D14A1645900578359 /* MessageUI.framework */,
+				2D82E6C4149D80E1009D52E1 /* Twitter.framework */,
 				2DD7BC62149C0A9600EDBD3D /* SystemConfiguration.framework */,
 				2D8301D5148689C8006F7C60 /* QuartzCore.framework */,
 				2D8301B3148676E2006F7C60 /* UIKit.framework */,
