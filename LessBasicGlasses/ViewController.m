@@ -392,15 +392,11 @@
 }
 -(void)gotoSEEOnline
 {
-    NSURL *url = [NSURL URLWithString:@"http://www.seeeyewear.com"];
-    [[UIApplication sharedApplication] openURL:url];
     [self dismissModalViewControllerAnimated:YES];
     [self reloadInputViews];
 }
 -(void)signUpForSpecialOffers
 {
-    NSURL *url = [NSURL URLWithString:@"http://seeeyewear.com/bribes_and_secret_offers.aspx"];
-    [[UIApplication sharedApplication] openURL:url];
     [self dismissModalViewControllerAnimated:YES];
     [self reloadInputViews];
 }

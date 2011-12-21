@@ -12,9 +12,6 @@
 	<array>
 		<string>appicon-57.png</string>
 		<string>appicon-114.png</string>
-		<string>SEE-Icon-57x57.png</string>
-		<string>SEE-Icon-114x114.png</string>
-		<string>SEE-Icon-72x72.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -24,9 +21,6 @@
 			<array>
 				<string>appicon-57.png</string>
 				<string>appicon-114.png</string>
-				<string>SEE-Icon-57x57.png</string>
-				<string>SEE-Icon-114x114.png</string>
-				<string>SEE-Icon-72x72.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<false/>
@@ -48,10 +42,6 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSMainNibFile</key>
-	<string>ViewController</string>
-	<key>NSMainNibFile~ipad</key>
-	<string>ViewController~ipad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
