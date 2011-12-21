@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "LessBasicGlasses/ViewController.m"
-         timestampString = "345867363.053095"
+         timestampString = "346127389.714415"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
          landmarkName = "-move:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "LessBasicGlasses/ViewController.m"
-         timestampString = "345867363.053095"
+         timestampString = "346130200.150254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
          landmarkName = "-move:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -71,6 +71,34 @@
          startingLineNumber = "43"
          endingLineNumber = "43"
          landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "LessBasicGlasses/ViewController.m"
+         timestampString = "346127389.714415"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "111"
+         endingLineNumber = "111"
+         landmarkName = "-move:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "LessBasicGlasses/ViewController.m"
+         timestampString = "346130466.693293"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
+         landmarkName = "-move:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

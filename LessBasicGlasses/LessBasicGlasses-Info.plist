@@ -12,6 +12,7 @@
 	<array>
 		<string>SEE-Icon-57x57.png</string>
 		<string>SEE-Icon-114x114.png</string>
+		<string>SEE-Icon-72x72.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -21,6 +22,7 @@
 			<array>
 				<string>SEE-Icon-57x57.png</string>
 				<string>SEE-Icon-114x114.png</string>
+				<string>SEE-Icon-72x72.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<false/>

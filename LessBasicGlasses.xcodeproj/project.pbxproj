@@ -19,6 +19,10 @@
 		2D3E617414941B8A00D9F74A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D3E617314941B8A00D9F74A /* Default.png */; };
 		2D6016A814A1650200ED29D8 /* SEE-Icon-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016A714A1650200ED29D8 /* SEE-Icon-114x114.png */; };
 		2D6016AB14A1650600ED29D8 /* SEE-Icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016AA14A1650600ED29D8 /* SEE-Icon-57x57.png */; };
+		2D6016AF14A166E300ED29D8 /* ViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016AE14A166E300ED29D8 /* ViewController~ipad.xib */; };
+		2D6016B114A168F100ED29D8 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016B014A168F100ED29D8 /* Default-Landscape~ipad.png */; };
+		2D6016B314A168F700ED29D8 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016B214A168F700ED29D8 /* Default-Portrait~ipad.png */; };
+		2D6016B514A16A1B00ED29D8 /* SEE-Icon-72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6016B414A16A1B00ED29D8 /* SEE-Icon-72x72.png */; };
 		2D82E6A5149D0311009D52E1 /* glasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D82E6A4149D0311009D52E1 /* glasses.xml */; };
 		2D82E6A8149D03CB009D52E1 /* TSGlassesParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D82E6A7149D03CB009D52E1 /* TSGlassesParser.m */; };
 		2D82E6AB149D03D6009D52E1 /* TSGlassesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D82E6AA149D03D6009D52E1 /* TSGlassesInfo.m */; };
@@ -70,6 +74,10 @@
 		2D3E617314941B8A00D9F74A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		2D6016A714A1650200ED29D8 /* SEE-Icon-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SEE-Icon-114x114.png"; path = "../SEE-Icon-114x114.png"; sourceTree = "<group>"; };
 		2D6016AA14A1650600ED29D8 /* SEE-Icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SEE-Icon-57x57.png"; path = "../SEE-Icon-57x57.png"; sourceTree = "<group>"; };
+		2D6016AE14A166E300ED29D8 /* ViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ViewController~ipad.xib"; sourceTree = "<group>"; };
+		2D6016B014A168F100ED29D8 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		2D6016B214A168F700ED29D8 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		2D6016B414A16A1B00ED29D8 /* SEE-Icon-72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SEE-Icon-72x72.png"; path = "../SEE-Icon-72x72.png"; sourceTree = "<group>"; };
 		2D82E6A4149D0311009D52E1 /* glasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = glasses.xml; sourceTree = "<group>"; };
 		2D82E6A6149D03CB009D52E1 /* TSGlassesParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGlassesParser.h; sourceTree = "<group>"; };
 		2D82E6A7149D03CB009D52E1 /* TSGlassesParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGlassesParser.m; sourceTree = "<group>"; };
@@ -258,6 +266,7 @@
 				2D8301C6148676E2006F7C60 /* ViewController.m */,
 				2D8301C8148676E2006F7C60 /* ViewController.xib */,
 				2D8301BA148676E2006F7C60 /* Supporting Files */,
+				2D6016AE14A166E300ED29D8 /* ViewController~ipad.xib */,
 			);
 			path = LessBasicGlasses;
 			sourceTree = "<group>";
@@ -280,6 +289,9 @@
 		2D8301D4148676FC006F7C60 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2D6016B414A16A1B00ED29D8 /* SEE-Icon-72x72.png */,
+				2D6016B214A168F700ED29D8 /* Default-Portrait~ipad.png */,
+				2D6016B014A168F100ED29D8 /* Default-Landscape~ipad.png */,
 				2D355EC2149AA63300FE8F8C /* famous faces */,
 				2D355EC0149AA62B00FE8F8C /* glasses */,
 				2D3E617114941B7B00D9F74A /* Default@2x.png */,
@@ -386,6 +398,10 @@
 				2D82E6C0149D5A5C009D52E1 /* MoreOptionsController.xib in Resources */,
 				2D6016A814A1650200ED29D8 /* SEE-Icon-114x114.png in Resources */,
 				2D6016AB14A1650600ED29D8 /* SEE-Icon-57x57.png in Resources */,
+				2D6016AF14A166E300ED29D8 /* ViewController~ipad.xib in Resources */,
+				2D6016B114A168F100ED29D8 /* Default-Landscape~ipad.png in Resources */,
+				2D6016B314A168F700ED29D8 /* Default-Portrait~ipad.png in Resources */,
+				2D6016B514A16A1B00ED29D8 /* SEE-Icon-72x72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +505,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LessBasicGlasses/LessBasicGlasses-Prefix.pch";
 				INFOPLIST_FILE = "LessBasicGlasses/LessBasicGlasses-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = GlassesApp;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -500,7 +518,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LessBasicGlasses/LessBasicGlasses-Prefix.pch";
 				INFOPLIST_FILE = "LessBasicGlasses/LessBasicGlasses-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = GlassesApp;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

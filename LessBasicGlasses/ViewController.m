@@ -101,10 +101,29 @@
     [[sender view] setCenter:translatedPoint];
     [self showOverlayWithFrame:[[(UIPinchGestureRecognizer*)sender view] frame]];
     
-    // CGPoint relpoint = [[sender view].superview convertPoint:[sender view].frame.origin toView:nil];
+    
+    // figure out where the corner is
+    NSInteger deviceHeight, deviceWidth, deviceX, deviceY;
+    CGFloat boundM, boundB;
+    
+    deviceHeight = [[UIScreen mainScreen] bounds].size.height;
+    deviceWidth = [[UIScreen mainScreen] bounds].size.width;
+    if([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        deviceX = deviceWidth;
+        deviceY = deviceHeight;
+    } else {
+        deviceX = deviceHeight;
+        deviceY = deviceWidth;
+    }
+    boundM = 100.0/(40.0-(deviceX/4.0));
+    boundB = -100.0*deviceX/(160.0-deviceX);
+    // || (abspoint.x > trashRatio*deviceX && (abspoint.y - .5*abspoint.x > 383))
     
     CGPoint abspoint = [[sender view].superview convertPoint:[sender view].center toView:glassesView];
-    if ((abspoint.x <= 25 && abspoint.y >= 395) || (abspoint.x > 25 && (abspoint.y - .5*abspoint.x > 383))) {
+    NSLog(@"%f, %f",abspoint.x, abspoint.y);
+    CGFloat abspointZ = deviceY-abspoint.y;
+    if ((abspoint.x <= 40 && abspointZ <= 100) || ((abspoint.x > 40) && (abspointZ < boundM*abspoint.x + boundB))) {
         [(UIPanGestureRecognizer*)sender view].alpha = 0.5;
         removeGlassesButton.tintColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:1.0f];
         if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
