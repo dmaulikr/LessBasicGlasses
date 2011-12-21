@@ -52,47 +52,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)composeTweet
-{
-    if([TWTweetComposeViewController canSendTweet] && image)
-    {
-        NSLog(@"attempting tweet");
-        TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-        BOOL temp;
-        temp = [tweetSheet setInitialText:@"I tried on some hip new glasses with SEE Eyewear's Glasses Inspector!"];
-        temp = [tweetSheet addImage:image];
-        [self presentModalViewController:tweetSheet animated:YES];
-        [tweetSheet release];
-    } else {
-        // can't tweet, tell them so
-        UIAlertView *tweetAlert = [[UIAlertView alloc] initWithTitle:@"Twitter not set up!" message:@"Please set up a Twitter account in the device settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [tweetAlert show];
-        [tweetAlert release];
-    }
-    
-}
-
--(void)composeMail
-{
-    if([MFMailComposeViewController canSendMail])
-    {
-        MFMailComposeViewController *mcvc = [[MFMailComposeViewController alloc] init];
-        mcvc.mailComposeDelegate = self;
-        [mcvc setSubject:@"I tried on glasses with SEE's Eyeglass Inspector!"];
-        [mcvc setMessageBody:@"Check out out my new style in these glasses!" isHTML:NO];
-        NSData *data = UIImagePNGRepresentation(image);
-        [mcvc addAttachmentData:data mimeType:@"image/png" fileName:@"SEEGlasses"];
-        [self presentModalViewController:mcvc animated:YES];
-        [mcvc release];
-    } else {
-        UIAlertView *mailAlert = [[UIAlertView alloc] initWithTitle:@"Mail not set up!" message:@"Can not send mail message. Please set up a mail account on this device." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [mailAlert show];
-        [mailAlert release];
-    }
-}
-
-
-
 #pragma mark UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -129,21 +88,31 @@
             [delegate saveImage];
             break;
         case 1:
-            [self composeTweet];
+            if([TWTweetComposeViewController canSendTweet] && image)
+            {
+                NSLog(@"attempting tweet");
+                TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+                BOOL temp;
+                temp = [tweetSheet setInitialText:@"I tried on some hip new glasses with SEE Eyewear's Glasses Inspector!"];
+                temp = [tweetSheet addImage:image];
+                [self presentModalViewController:tweetSheet animated:YES];
+                [tweetSheet release];
+            } else {
+                // can't tweet, tell them so
+                UIAlertView *tweetAlert = [[UIAlertView alloc] initWithTitle:@"Twitter not set up!" message:@"Please set up a Twitter account in the device settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [tweetAlert show];
+                [tweetAlert release];
+            }
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
             [delegate tweetImage];
             break;
         case 2:
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
-            [self composeMail];
             [delegate mailImage];
             break;
         case 3:
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
             [delegate gotoSEEOnline];
             break;
         case 4:
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
             [delegate signUpForSpecialOffers];
             break;
         default:
@@ -157,14 +126,6 @@
 - (IBAction)backButtonPressed:(id)sender {
     [delegate endOptions];
 }
-
--(void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
-    
-    [self dismissModalViewControllerAnimated:YES];
-    
-}
-
-
 - (void)dealloc {
     [moreOptionsTable release];
     [optionsList release];
